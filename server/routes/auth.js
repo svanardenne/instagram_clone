@@ -7,7 +7,15 @@ router.get("/", (req, res) => {
 });
 
 router.post("/signup", (req, res) => {
-  console.log(req.body.name);
+  const { name, email, password } = req.body;
+  if (!name || !email || !password) {
+    return res.status(422).json({
+      error: "Please add all the fields.",
+    });
+  }
+  res.json({
+    message: "Successfully posted.",
+  });
 });
 
 module.exports = router;
