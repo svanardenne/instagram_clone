@@ -4,7 +4,6 @@ const PORT = 5000;
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 dotenv.config();
-
 require("./models/user");
 
 app.use(express.json());
