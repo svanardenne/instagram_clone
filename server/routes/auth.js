@@ -4,8 +4,9 @@ const mongoose = require("mongoose");
 const User = mongoose.model("User");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const requireLogin = require("../middleware/requireLogin");
 
-router.get("/protected", (req, res) => {
+router.get("/protected", requireLogin, (req, res) => {
   res.send("Hello User");
 });
 
