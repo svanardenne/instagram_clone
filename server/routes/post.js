@@ -40,4 +40,15 @@ router.post("/post/create", requireLogin, (req, res) => {
     });
 });
 
+router.get("/posts/user", requireLogin, (req, res) => {
+  Post.find({ postedBy: req.user._id })
+    .populate("postedBy", "_id name")
+    .then((posts) => {
+      res.json({ posts });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
 module.exports = router;
