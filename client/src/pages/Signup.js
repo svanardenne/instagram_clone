@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const CardWrapper = styled.div`
   margin-top: 30px;
@@ -30,6 +31,9 @@ const Signup = () => {
         <button className="btn waves-effect waves-light #64b5f6 blue lighten-2">
           Signup
         </button>
+        <h5>
+          Already have an account? <Link to="/signin">Signin</Link>
+        </h5>
       </AuthCard>
     </CardWrapper>
   );
