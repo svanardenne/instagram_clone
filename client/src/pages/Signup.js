@@ -2,6 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
+const StyledLogo = styled.h2`
+  font-family: "Grand Hotel", cursive;
+  color: black !important;
+`;
+
 const CardWrapper = styled.div`
   margin-top: 30px;
 `;
@@ -24,7 +29,7 @@ const Signup = () => {
   return (
     <CardWrapper>
       <AuthCard className="card">
-        <h2>Instagram</h2>
+        <StyledLogo>Instagram</StyledLogo>
         <InputField type="text" placeholder="name" />
         <InputField type="text" placeholder="email" />
         <InputField type="text" placeholder="password" />
