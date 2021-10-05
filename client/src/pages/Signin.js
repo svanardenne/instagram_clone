@@ -27,7 +27,7 @@ const Signin = () => {
         <InputField type="text" placeholder="email" />
         <InputField type="text" placeholder="password" />
         <button className="btn waves-effect waves-light #64b5f6 blue lighten-2">
-          Login
+          Signin
         </button>
       </AuthCard>
     </CardWrapper>
