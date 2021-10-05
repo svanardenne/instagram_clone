@@ -1,22 +1,32 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
+
+const StyledLogo = styled(Link)`
+  font-family: "Grand Hotel", cursive;
+  color: black !important;
+`;
+
+const StyledLink = styled(Link)`
+  color: black !important;
+`;
 
 const Navbar = () => {
   return (
     <nav>
       <div className="nav-wrapper white">
-        <Link to="/" className="brand-logo left">
+        <StyledLogo to="/" className="brand-logo left">
           Instagram
-        </Link>
+        </StyledLogo>
         <ul id="nav-mobile" className="right">
           <li>
-            <Link to="/signin">Signin</Link>
+            <StyledLink to="/signin">Signin</StyledLink>
           </li>
           <li>
-            <Link to="/signup">Signup</Link>
+            <StyledLink to="/signup">Signup</StyledLink>
           </li>
           <li>
-            <Link to="/profile">Profile</Link>
+            <StyledLink to="/profile">Profile</StyledLink>
           </li>
         </ul>
       </div>
