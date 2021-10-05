@@ -1,3 +1,5 @@
+import React from "react";
+
 const Signup = () => {
   return <h1>Signup</h1>;
 };
