@@ -5,6 +5,7 @@ import styled from "styled-components";
 const StyledLogo = styled(Link)`
   font-family: "Grand Hotel", cursive;
   color: black !important;
+  padding-left: 15px !important;
 `;
 
 const StyledLink = styled(Link)`
