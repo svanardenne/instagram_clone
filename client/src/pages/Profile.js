@@ -2,11 +2,16 @@ import React from "react";
 import styled from "styled-components";
 
 const ProfileWrapper = styled.div`
+  max-width: 550px;
+  margin: 0px auto;
+`;
+
+const InfoWrapper = styled.div`
   display: flex;
   justify-content: space-around;
-  margin: 18px 0px;
+  margin: 15px 15px;
   border-bottom: 1px solid grey;
-  @media (max-width: 435px) {
+  @media (max-width: 465px) {
     h4 {
       font-size: 20px;
     }
@@ -30,19 +35,31 @@ const PostInfo = styled.div`
   h6 {
     margin: 0 !important;
   }
-  @media (max-width: 500px) {
+  @media (max-width: 455px) {
     flex-direction: column;
-    gap: 5;
+    gap: 5px;
+  }
+  @media (max-width: 500px) {
     h6 {
       font-size: 14px;
     }
   }
 `;
 
+const Gallery = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+`;
+
+const Item = styled.img`
+  width: 30%;
+`;
+
 const Profile = () => {
   return (
-    <div>
-      <ProfileWrapper>
+    <ProfileWrapper>
+      <InfoWrapper>
         <div>
           <ProfileImage src="https://images.unsplash.com/photo-1597223557154-721c1cecc4b0?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29ufGVufDB8MnwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" />
         </div>
@@ -54,8 +71,16 @@ const Profile = () => {
             <h6>40 following</h6>
           </PostInfo>
         </ProfileTitle>
-      </ProfileWrapper>
-    </div>
+      </InfoWrapper>
+      <Gallery>
+        <Item src="https://images.unsplash.com/photo-1597223557154-721c1cecc4b0?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29ufGVufDB8MnwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" />
+        <Item src="https://images.unsplash.com/photo-1597223557154-721c1cecc4b0?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29ufGVufDB8MnwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" />
+        <Item src="https://images.unsplash.com/photo-1597223557154-721c1cecc4b0?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29ufGVufDB8MnwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" />
+        <Item src="https://images.unsplash.com/photo-1597223557154-721c1cecc4b0?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29ufGVufDB8MnwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" />
+        <Item src="https://images.unsplash.com/photo-1597223557154-721c1cecc4b0?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29ufGVufDB8MnwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" />
+        <Item src="https://images.unsplash.com/photo-1597223557154-721c1cecc4b0?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29ufGVufDB8MnwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" />
+      </Gallery>
+    </ProfileWrapper>
   );
 };
 
