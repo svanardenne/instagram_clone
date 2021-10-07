@@ -29,6 +29,9 @@ const Navbar = () => {
           <li>
             <StyledLink to="/profile">Profile</StyledLink>
           </li>
+          <li>
+            <StyledLink to="/post/create">Create Post</StyledLink>
+          </li>
         </ul>
       </div>
     </nav>
