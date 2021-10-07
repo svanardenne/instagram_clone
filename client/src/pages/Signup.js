@@ -33,7 +33,7 @@ const Signup = () => {
         <InputField type="text" placeholder="name" />
         <InputField type="text" placeholder="email" />
         <InputField type="text" placeholder="password" />
-        <button className="btn waves-effect waves-light #64b5f6 blue lighten-2">
+        <button className="btn waves-effect waves-light #64b5f6 blue darken-1">
           Signup
         </button>
         <h5>
