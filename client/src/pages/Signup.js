@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import M from "materialize-css";
 
 const StyledLogo = styled.h2`
   font-family: "Grand Hotel", cursive;
@@ -26,16 +27,74 @@ const InputField = styled.input`
 `;
 
 const Signup = () => {
+  const history = useHistory();
+  const [values, setValues] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+
+  const { name, email, password } = values;
+
+  const postData = (e) => {
+    e.preventDefault();
+    fetch(`/signup`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        password,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.error) {
+          M.toast({ html: data.error, classes: "red darken-3" });
+        } else {
+          M.toast({ html: data.message, classes: "green darken-1" });
+          history.push("/signin");
+        }
+      });
+  };
+
+  const handleChange = (fieldName) => (e) => {
+    setValues({ ...values, [fieldName]: e.target.value });
+  };
+
   return (
     <CardWrapper>
       <AuthCard className="card">
         <StyledLogo>Instagram</StyledLogo>
-        <InputField type="text" placeholder="name" />
-        <InputField type="text" placeholder="email" />
-        <InputField type="text" placeholder="password" />
-        <button className="btn waves-effect waves-light #64b5f6 blue darken-1">
-          Signup
-        </button>
+        <form onSubmit={postData}>
+          <InputField
+            type="text"
+            placeholder="name"
+            value={name}
+            onChange={handleChange("name")}
+          />
+          <InputField
+            type="text"
+            placeholder="email"
+            value={email}
+            onChange={handleChange("email")}
+          />
+          <InputField
+            type="text"
+            placeholder="password"
+            value={password}
+            onChange={handleChange("password")}
+          />
+          <button
+            type="submit"
+            className="btn waves-effect waves-light #64b5f6 blue darken-1"
+          >
+            Signup
+          </button>
+        </form>
+
         <h5>
           Already have an account? <Link to="/signin">Signin</Link>
         </h5>
