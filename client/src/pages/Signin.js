@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import M from "materialize-css";
 
 const StyledLogo = styled.h2`
   font-family: "Grand Hotel", cursive;
@@ -26,15 +27,74 @@ const InputField = styled.input`
 `;
 
 const Signin = () => {
+  const history = useHistory();
+  const [values, setValues] = useState({
+    email: "",
+    password: "",
+  });
+
+  const { email, password } = values;
+
+  const postData = (e) => {
+    e.preventDefault();
+    if (
+      !/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+        email
+      )
+    ) {
+      M.toast({ html: "Invalid email", classes: "red darken-3" });
+      return;
+    }
+    fetch(`/signin`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.error) {
+          M.toast({ html: data.error, classes: "red darken-3" });
+        } else {
+          M.toast({ html: "Signin successful", classes: "green darken-1" });
+          history.push("/");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const handleChange = (fieldName) => (e) => {
+    setValues({ ...values, [fieldName]: e.target.value });
+  };
+
   return (
     <CardWrapper>
       <AuthCard className="card">
         <StyledLogo>Instagram</StyledLogo>
-        <InputField type="text" placeholder="email" />
-        <InputField type="text" placeholder="password" />
-        <button className="btn waves-effect waves-light #64b5f6 blue darken-1">
-          Signin
-        </button>
+        <form onSubmit={postData}>
+          <InputField
+            type="text"
+            placeholder="email"
+            value={email}
+            onChange={handleChange("email")}
+          />
+          <InputField
+            type="password"
+            placeholder="password"
+            value={password}
+            onChange={handleChange("password")}
+          />
+          <button className="btn waves-effect waves-light #64b5f6 blue darken-1">
+            Signin
+          </button>
+        </form>
         <h5>
           Don't have an account? <Link to="/signup">Signup</Link>
         </h5>

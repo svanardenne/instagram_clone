@@ -93,7 +93,7 @@ const Signup = () => {
             onChange={handleChange("email")}
           />
           <InputField
-            type="text"
+            type="password"
             placeholder="password"
             value={password}
             onChange={handleChange("password")}
