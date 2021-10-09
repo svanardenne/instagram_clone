@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 const StyledLogo = styled(Link)`
@@ -8,7 +8,7 @@ const StyledLogo = styled(Link)`
   padding-left: 15px !important;
 `;
 
-const StyledLink = styled(Link)`
+const StyledLink = styled(NavLink)`
   color: black !important;
 `;
 
@@ -21,16 +21,36 @@ const Navbar = () => {
         </StyledLogo>
         <ul id="nav-mobile" className="right">
           <li>
-            <StyledLink to="/signin">Signin</StyledLink>
+            <StyledLink
+              to="/signin"
+              activeStyle={{ backgroundColor: "rgba(0,0,0,0.1)" }}
+            >
+              Signin
+            </StyledLink>
           </li>
           <li>
-            <StyledLink to="/signup">Signup</StyledLink>
+            <StyledLink
+              to="/signup"
+              activeStyle={{ backgroundColor: "rgba(0,0,0,0.1)" }}
+            >
+              Signup
+            </StyledLink>
           </li>
           <li>
-            <StyledLink to="/profile">Profile</StyledLink>
+            <StyledLink
+              to="/profile"
+              activeStyle={{ backgroundColor: "rgba(0,0,0,0.1)" }}
+            >
+              Profile
+            </StyledLink>
           </li>
           <li>
-            <StyledLink to="/post/create">Create Post</StyledLink>
+            <StyledLink
+              to="/post/create"
+              activeStyle={{ backgroundColor: "rgba(0,0,0,0.1)" }}
+            >
+              Create Post
+            </StyledLink>
           </li>
         </ul>
       </div>
