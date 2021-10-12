@@ -19,7 +19,7 @@ router.get("/posts", (req, res) => {
     });
 });
 
-router.post("/post/create", async (req, res) => {
+router.post("/post/create", requireLogin, async (req, res) => {
   let form = formidable.IncomingForm();
   form.keepExtensions = true;
   await form.parse(req, (err, fields, files) => {
