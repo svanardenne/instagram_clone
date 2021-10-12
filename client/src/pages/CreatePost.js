@@ -32,9 +32,6 @@ const CreatePost = () => {
     e.preventDefault();
     fetch(`/post/create`, {
       method: "POST",
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
       body: formData,
     })
       .then((res) => res.json())
