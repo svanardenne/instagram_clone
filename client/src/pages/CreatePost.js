@@ -33,6 +33,9 @@ const CreatePost = () => {
     fetch(`/post/create`, {
       method: "POST",
       body: formData,
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+      },
     })
       .then((res) => res.json())
       .then((data) => {
