@@ -18,7 +18,7 @@ const CreatePost = () => {
     formData: new FormData(),
   });
 
-  const { title, body, image, formData } = values;
+  const { title, body, formData } = values;
 
   const history = useHistory();
 
