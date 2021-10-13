@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styled from "styled-components";
 import { Link, useHistory } from "react-router-dom";
+import { UserContext } from "../App";
 import M from "materialize-css";
 
 const StyledLogo = styled.h2`
@@ -27,6 +28,7 @@ const InputField = styled.input`
 `;
 
 const Signin = () => {
+  const [state, dispatch] = useContext(UserContext);
   const history = useHistory();
   const [values, setValues] = useState({
     email: "",
@@ -63,6 +65,7 @@ const Signin = () => {
         } else {
           localStorage.setItem("jwt", data.token);
           localStorage.setItem("user", JSON.stringify(data.user));
+          dispatch({ type: "USER", payload: data.user });
           M.toast({ html: "Signin successful", classes: "green darken-1" });
           history.push("/");
         }
