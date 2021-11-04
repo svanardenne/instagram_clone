@@ -8,8 +8,8 @@ This project is developed on a local MongoDB database.
   - Clone to local machine
   - Run ```npm install``` in both client and server directories
   - Create a .env file in the server directory and format it as such: 
-    - ```MONGODB_URI=[yourmongodburi]
-         JWT_SECRET=yourjwtsecret```
+    - ```MONGODB_URI=[yourmongodburi]```
+      ```JWT_SECRET=yourjwtsecret```
     - Use your own MongoDB uri to connect to the app
     - The jwt secret can be any string of characters
   - Run ```npm start``` in client directory
