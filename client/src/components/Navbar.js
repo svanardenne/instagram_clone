@@ -18,7 +18,7 @@ const Navbar = () => {
   const renderList = () => {
     if (state) {
       return [
-        <li>
+        <li key="profile">
           <StyledLink
             to="/profile"
             activeStyle={{ backgroundColor: "rgba(0,0,0,0.1)" }}
@@ -26,7 +26,7 @@ const Navbar = () => {
             Profile
           </StyledLink>
         </li>,
-        <li>
+        <li key="create">
           <StyledLink
             to="/post/create"
             activeStyle={{ backgroundColor: "rgba(0,0,0,0.1)" }}
@@ -37,7 +37,7 @@ const Navbar = () => {
       ];
     } else {
       return [
-        <li>
+        <li key="signin">
           <StyledLink
             to="/signin"
             activeStyle={{ backgroundColor: "rgba(0,0,0,0.1)" }}
@@ -45,7 +45,7 @@ const Navbar = () => {
             Signin
           </StyledLink>
         </li>,
-        <li>
+        <li key="signup">
           <StyledLink
             to="/signup"
             activeStyle={{ backgroundColor: "rgba(0,0,0,0.1)" }}
